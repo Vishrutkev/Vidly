@@ -20,8 +20,8 @@ This project is a video rental application backend built using Node.js, Express,
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/your-username/video-rental-backend.git
-    cd video-rental-backend
+    git clone https://github.com/Vishrutkev/Vidly.git
+    cd Vidly
     ```
 
 2. **Install dependencies:**
@@ -113,9 +113,6 @@ Use Postman to interact with the API. The base URL is `http://localhost:your-por
 - **Mongoose**
 - **Postman**
 
-## Contributing
-
-Contributions are welcome! Please submit a pull request or open an issue to discuss potential changes.
 
 ## License
 
