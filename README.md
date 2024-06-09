@@ -35,7 +35,7 @@ This project is a video rental application backend built using Node.js, Express,
     Create a `.env` file in the root directory and add the following variables:
 
     ```env
-    MONGODB_URI=your-mongodb-uri
+    MONGODB_URL=your-mongodb-url
     PORT=your-port
     ```
 
