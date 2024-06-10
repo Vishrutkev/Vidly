@@ -1,3 +1,4 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
@@ -6,12 +7,12 @@ const genres = require("./routes/genres");
 const customers = require("./routes/customers");
 const movies = require("./routes/movies");
 const rentals = require("./routes/rentals");
+const { MONGODB_URL, PORT } = require("./config/constants");
 const app = express();
-const url = "mongodb://localhost:27017/vidly";
 
 // Connect to MongoDB using Mongoose
 mongoose
-  .connect(url)
+  .connect(MONGODB_URL)
   .then(() => {
     console.log("Connected to MongoDB");
   })
@@ -25,6 +26,4 @@ app.use("/api/customers", customers);
 app.use("/api/movies", movies);
 app.use("/api/rentals", rentals);
 
-const port = process.env.PORT || 3000;
-
-app.listen(3000, () => console.log(`Listening on port ${port}... `));
+app.listen(PORT, () => console.log(`Listening on port ${PORT}... `));
