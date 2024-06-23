@@ -2,6 +2,7 @@ const _ = require("lodash");
 const auth = require("../middleware/auth");
 const bcrypt = require("bcrypt");
 const express = require("express");
+const validator = require("../middleware/validate");
 const router = express.Router();
 const { User, validate } = require("../models/user");
 
@@ -10,7 +11,7 @@ router.get("/me", auth, async (req, res) => {
   res.send(user);
 });
 
-router.post("/", async (req, res) => {
+router.post("/", validator(validate), async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 

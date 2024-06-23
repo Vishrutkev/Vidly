@@ -10,8 +10,8 @@ describe("auth middleware", () => {
   });
 
   afterEach(async () => {
+    await server.close();
     await Genre.deleteMany({});
-    server.close();
   });
 
   let token;
