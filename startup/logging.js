@@ -1,5 +1,5 @@
 const winston = require("winston");
-require("winston-mongodb");
+//require("winston-mongodb");
 require("express-async-errors");
 
 module.exports = function () {
@@ -21,10 +21,10 @@ module.exports = function () {
     new winston.transports.Console({ colorize: true, prettyPrint: true }),
     new winston.transports.File({ filename: "logfile.log" })
   );
-  winston.add(
-    new winston.transports.MongoDB({
-      db: process.env.MONGODB_URL,
-      options: { useUnifiedTopology: true },
-    })
-  );
+  // winston.add(
+  //   new winston.transports.MongoDB({
+  //     db: process.env.MONGODB_URL,
+  //     options: { useUnifiedTopology: true },
+  //   })
+  // );
 };

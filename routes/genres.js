@@ -2,6 +2,8 @@ const express = require("express");
 const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
 const router = express.Router();
+const mongoose = require("mongoose");
+const validateObjectId = require("../middleware/validateObjectId");
 const asyncMiddleware = require("../middleware/async");
 const { Genre, validate } = require("../models/genre");
 
@@ -29,6 +31,7 @@ router.post(
 router.put(
   "/:id",
   auth,
+  validateObjectId,
   asyncMiddleware(async (req, res) => {
     const { error } = validate(req.body);
     if (error) return res.status(400).send(error.details[0].message);
@@ -42,7 +45,6 @@ router.put(
         new: true,
       }
     );
-
     if (!genre)
       return res.status(404).send("The genre with the given Id is not found");
     res.send(genre);
@@ -52,6 +54,7 @@ router.put(
 router.delete(
   "/:id",
   [auth, admin],
+  validateObjectId,
   asyncMiddleware(async (req, res) => {
     const genre = await Genre.findByIdAndDelete(req.params.id);
     if (!genre)
@@ -63,6 +66,7 @@ router.delete(
 
 router.get(
   "/:id",
+  validateObjectId,
   asyncMiddleware(async (req, res) => {
     const genre = await Genre.findById(req.params.id);
     if (!genre)
