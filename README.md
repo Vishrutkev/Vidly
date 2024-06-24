@@ -105,7 +105,7 @@ Use Postman to interact with the API. The base URL is `http://localhost:your-por
     DELETE /api/customers/:id
     ```
 
-### Genre
+### Genres
 
 - **Get all genres**
 
@@ -237,7 +237,8 @@ Use Postman to interact with the API. The base URL is `http://localhost:your-por
     ```
 
 - **Update a rental**
--   ### All the calculations of the other properties within the rental object will get calculated at the server level.
+
+  - All the calculations of the other properties within the rental object will get calculated at the server level.
 
     ```http
     PUT /api/returns/:id
@@ -256,7 +257,8 @@ Use Postman to interact with the API. The base URL is `http://localhost:your-por
 ### Users
 
 - **Get a user by ID**
-- ### to get the user info with the ID is a bad idea so getting the user using JWT, So only the authenticated user would be able to get their Info.
+
+  - to get the user info with the ID is a bad idea so getting the user using JWT, So only the authenticated user would be able to get their Info.
   
     ```http
     GET /api/users/me  
